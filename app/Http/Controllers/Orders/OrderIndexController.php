@@ -16,11 +16,9 @@ class OrderIndexController extends Controller
      * @param  \App\Services\Orders\OrdersService  $ordersService
      * @return \App\Http\Resources\Orders\OrdersResource
      */
-    public function __invoke(Request $request, OrdersService $ordersService)//: OrdersResource
+    public function __invoke(Request $request, OrdersService $ordersService): OrdersResource
     {
         $orders = $ordersService->getAll($request->get('company_id'));
-
-//        return $orders;
 
         return new OrdersResource($orders);
     }

@@ -14,9 +14,8 @@ class OrderShowController extends Controller
      * @param  \App\Models\Order  $order
      * @return \App\Http\Resources\Orders\OrderResource
      */
-    public function __invoke(Order $order)//: OrderResource
+    public function __invoke(Order $order): OrderResource
     {
-//        return $order;
         return new OrderResource($order);
     }
 }
