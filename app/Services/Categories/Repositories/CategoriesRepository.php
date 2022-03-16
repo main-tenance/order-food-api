@@ -10,7 +10,7 @@ class CategoriesRepository
 
     public function getAllByCompanyId(int $companyId)
     {
-        return Company::find($companyId)->categories()->get();
+        return Company::findOrFail($companyId)->categories()->get();
     }
 
     public function getAll()

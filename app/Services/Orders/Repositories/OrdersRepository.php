@@ -9,7 +9,7 @@ class OrdersRepository
 {
     public function getAllByCompanyId(int $companyId)
     {
-        return Company::find($companyId)->orders()->get();
+        return Company::findOrFail($companyId)->orders()->get();
     }
 
     public function getAll()

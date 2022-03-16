@@ -10,7 +10,7 @@ class DishesRepository
 
     public function getAllByCategoryId(int $categoryId)
     {
-        return Category::find($categoryId)->dishes()->get();
+        return Category::findOrFail($categoryId)->dishes()->get();
     }
 
     public function getAll()
@@ -20,7 +20,7 @@ class DishesRepository
 
     public function getById(int $id): Dish
     {
-        return Dish::find($id);
+        return Dish::findOrFail($id);
     }
 
 }

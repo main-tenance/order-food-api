@@ -9,7 +9,7 @@ class CompaniesRepository
 {
     public function getAllByCategoryId(int $categoryId)
     {
-        return Category::find($categoryId)->companies()->get();
+        return Category::findOrFail($categoryId)->companies()->get();
     }
 
     public function getAll()
@@ -19,7 +19,7 @@ class CompaniesRepository
 
     public function getById(int $id): Company
     {
-        return Company::find($id);
+        return Company::findOrFail($id);
     }
 
 }
