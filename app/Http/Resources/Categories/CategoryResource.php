@@ -14,9 +14,11 @@ class CategoryResource extends JsonResource
      */
     public function toArray($request)
     {
-        return $this->only([
-            'id',
-            'name',
-        ]);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'companies' => $this->companies->map(fn($item) => $item->only(['id', 'name'])),
+            'dishes' => $this->dishes->map(fn($item) => $item->only(['id', 'name', 'price'])),
+        ];
     }
 }
